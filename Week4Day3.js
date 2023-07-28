@@ -68,6 +68,75 @@ for (let turtle of ninjaTurtles) {
 ////////////////////////////////
 // Methods, Revisited
 ////////////////////////////////
+const favMovies = ['Jaws', 'The Fellowship of the Ring', 'Howl\'s Moving Castle', 'Django Unchained', 'Cloud Atlas', 'The Usual Suspects', 'Toy Story', 'Conan the Barbarian', 'Titanic', 'Harry Potter', 'Fried Green Tomatoes', 'Volver', 'Oculus', 'Seven', 'Black Panther', 'Harry Potter', 'Imitation of Life', 'Snatch', 'Fast and Furious'];
+//Console log: the index of Titanic
+console.log("index of Titanic: " + favMovies.indexOf('Titanic'));
+
+//1. the sort() method permanently altered the array
+favMovies.sort();
+console.log("sorted favMovies: " + favMovies);
+
+//2. 
+favMovies.pop();
+
+//3.
+favMovies.push("Guardians of the Galaxy");
+
+//4.
+console.log(); //blank line
+console.log("favMovies before reverse(): " + favMovies);
+console.log(); //blank line
+favMovies.reverse();
+console.log("reverse() favMovies: " + favMovies);
+
+//5. shift() removes the first element of an array and returns the element
+favMovies.shift();
+
+//6. unshift() adds elements to the beginning of array and returns new length.
+
+//7. splice favMovies array at "Django Unchained" and add "Avatar"
+//splice(start, deleteCount, item0, item1, /* … ,*/ itemN)
+console.log(); //blank line
+
+spliceRightHalfOfArray = favMovies.splice(favMovies.indexOf("Django Unchained"), Infinity, 'Avatar');
+
+// this adds Avatar to the last half after splice() since directions did not specify which array to add
+//Avatar to:
+spliceRightHalfOfArray.push('Avatar');
+
+console.log(); //blank line
+console.log("left half of favMovies array after splice(): " + favMovies);
+console.log("right half of favMovies array using splice(): " + spliceRightHalfOfArray);
+console.log(); //blank line
+
+//8. slicethe last half of the array (slice the last half from step 7)
+//slice(start index, end index); slice() is zero-based index
+//end index exclusive
+//using slice() instead of splice() to get the right half of the spliced array
+middleOfSplicedArrayLength = Math.floor(spliceRightHalfOfArray.length/2);
+middleOfSplicedArrayIndex = middleOfSplicedArrayLength-1;
+sliceRightHalfArrayStartIndex = middleOfSplicedArrayIndex;
+sliceRightHalfArrayEndIndex = spliceRightHalfOfArray.length; //length - 1 = last index that will be included
+
+
+//9.
+sliceRightHalfOfArray = spliceRightHalfOfArray.slice(sliceRightHalfArrayStartIndex, sliceRightHalfArrayEndIndex);
+console.log(); //blank line
+console.log("right Half of spliced array using slice(): " + sliceRightHalfOfArray);
+
+//10.
+console.log(); //blank line
+console.log("favMovies length: " + favMovies.length);
+console.log("splice favMovies array: " + spliceRightHalfOfArray);
+console.log("slice splcied array: " + sliceRightHalfOfArray);
+
+
+//11.
+//find indexOf('Fast and Furious') on right half of array: will return -1 if not found
+console.log(sliceRightHalfOfArray.indexOf('Fast and Furious'));
+console.log(spliceRightHalfOfArray.indexOf('Fast and Furious'));
+
+
 
 ////////////////////////////////
 // Where is Waldo
